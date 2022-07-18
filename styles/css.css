@@ -1,0 +1,101 @@
+*,*::before,*::after{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body{
+ background: #fff;
+}
+#pyramid-layout {
+ perspective: 600px;
+ position: relative;
+ width: 100%;
+ pointer-events: auto;
+ min-height: 100vh;
+ font-size: 2.3rem;
+ background-color: transparent;
+ display: grid;
+ place-items: center;
+}
+.shape,
+.face,
+.face-wrapper {
+ position: absolute;
+ transform-style: preserve-3d;
+ pointer-events: none;
+}
+.scene {
+ width: 300px;
+ height: 300px;
+ display: grid;
+ place-items: center;
+}
+.face,
+.face-wrapper {
+ overflow: hidden;
+ transform-origin: 0 0;
+}
+.face-wrapper .face {
+ left: 100%;
+ width: 100%;
+ height: 100%;
+}
+.shape .side-right,
+.shape .side-left {
+ transform-origin: 50% 0;
+}
+.shape {
+ transform: rotateX(-25deg) rotateY(0deg) rotateZ(0deg);
+ opacity: 1;
+ width: 4em;
+ height: 5em;
+}
+.shape .face-wrapper {
+ width: 4em;
+ height: 2em;
+}
+.shape .face-wrapper .face {
+ width: 4em;
+ height: 4em;
+ transform: rotateZ(45deg) translateX(-35.35%) translateY(35.35%);
+}
+.shape .side-front {
+ transform: scaleZ(2.69) scaleY(2.69) rotateX(21.8deg);
+}
+.shape .side-back {
+ left: 100%;
+  transform:scaleZ(2.69) scaleY(2.69) rotateX(-21.80deg) rotateY(180deg);
+}
+.shape .side-right {
+ transform: scaleX(2.69) scaleY(2.69) rotateZ(21.8deg) rotateY(-90deg);
+}
+.shape .side-left {
+ transform: scaleX(2.69) scaleY(2.69) rotateZ(-21.8deg) rotateY(90deg);
+}
+.shape .side-bottom {
+ top: 99%;
+ transform: rotateX(-90deg) translateY(-50%);
+ width: 4em;
+ height: 4em;
+ background: #451f97 !important;
+}
+.shadow-bottom {
+ width: 4em;
+ height: 4em;
+ background: #451f97;
+ box-shadow: 0 0 100px #451f974b, 0 0 90px 30px #451f97bf;
+ filter: blur(20px);
+ position: absolute;
+ top: 90%;
+ transform: rotateX(90deg) translateY(0);
+}
+.shape .face {
+ background: linear-gradient(
+   to bottom right,
+   #0b0416 1.5%,
+   #15092c 13%,
+   #451f97 35%,
+   #682ae9 47%
+ );
+}
